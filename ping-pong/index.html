@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no"
+    />
+    <title>Ping Pong</title>
+    <script type="module" src="./script.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="style.css" />
+    <script
+      defer
+      data-domain="abhinavthedev.github.io"
+      src="https://getanalyzr.vercel.app/tracking-script.js"
+    ></script>
+  </head>
+  <body>
+    <div class="console">
+      <div class="controls">
+        <div class="start-btn button">START(r)</div>
+        <div class="navigation-buttons">
+          <div class="nav-btn button up">
+            <div class="arrow"></div>
+          </div>
+          <div class="nav-btn button down">
+            <div class="arrow"></div>
+          </div>
+        </div>
+      </div>
+      <div class="screen-area">
+        <div class="screen">
+          <div id="left-score" class="score"></div>
+          <div id="right-score" class="score"></div>
+          <canvas id="pong"></canvas>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

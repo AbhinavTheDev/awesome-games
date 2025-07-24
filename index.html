@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Game Hub by Abhinav</title>
+    <link rel="stylesheet" href="style.css" />
+    <script
+      defer
+      data-domain="abhinavthedev.github.io"
+      src="https://getanalyzr.vercel.app/tracking-script.js"
+    ></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="bento-grid">
+        <!-- Ping Pong Game Box -->
+        <a href="./ping-pong/">
+          <div
+            class="grid-item game-item"
+            data-game="pingpong"
+            style="background-color: #ff8c42; color: #ffffff"
+          >
+            <div class="grid-content">
+              <div class="icon">&#127955;</div>
+              <h3>Ping Pong Game</h3>
+              <p>Classic arcade fun</p>
+            </div>
+          </div>
+        </a>
+
+        <!-- Number Guessing Game Box -->
+        <a href="./guess-number/">
+          <div
+            class="grid-item game-item"
+            data-game="numberguess"
+            style="background-color: #9b59b6; color: #ffffff"
+          >
+            <div class="grid-content">
+              <div class="icon">&#127919;</div>
+              <h3>Number Guessing Game</h3>
+              <p>Test your intuition</p>
+            </div>
+          </div>
+        </a>
+        <!-- Mouse Clicker Game Box -->
+        <div
+          class="grid-item game-item"
+          data-game="mouseclicker"
+          style="background-color: #f1c40f; color: #2d2d2d"
+        >
+          <div class="grid-content">
+            <div class="icon">&#128440;</div>
+            <h3>Mouse Clicker Game</h3>
+            <p>Click to win</p>
+          </div>
+        </div>
+        <!-- GitHub Box (spans 2 columns when space allows) -->
+        <div
+          class="grid-item github-box"
+          style="background-color: #2d2d2d; color: #ffffff"
+        >
+          <div class="grid-content">
+            <div class="icon">&#127775;</div>
+            <h2>Check out this project on GitHub!</h2>
+            <p>Give it a star if you like it!</p>
+            <button class="btn btn--primary github-btn">
+              &#127775; Star on GitHub
+            </button>
+          </div>
+        </div>
+        <!-- Sponsor Box -->
+        <div
+          class="grid-item"
+          style="background-color: #ff6b9d; color: #ffffff"
+        >
+          <div class="grid-content">
+            <div class="icon">&#128150;</div>
+            <h3>Love the project?</h3>
+            <p>Help us by sponsoring!</p>
+            <button class="btn btn--secondary sponsor-btn">
+              &#128150; Sponsor
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
