@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mouse Clicker Game</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <!-- Header -->
+      <header class="game-header">
+        <h1>Mouse Clicker Game</h1>
+      </header>
+
+      <div class="action">
+        <!-- Time Selector -->
+        <div class="time-selector" id="time-selector">
+          <h3>Select Time Limit:</h3>
+          <div class="time-buttons">
+            <button class="btn time-btn active" data-time="30">30s</button>
+            <button class="btn time-btn" data-time="60">60s</button>
+            <button class="btn time-btn" data-time="90">90s</button>
+          </div>
+        </div>
+
+        <!-- Stats -->
+        <div class="game-stats hidden" id="game-stats">
+          <div class="stat-item">
+            <div class="stat-label">Time Remaining</div>
+            <div class="stat-value" id="timer-display">30</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Click Area -->
+      <div class="game-area hidden" id="game-area">
+        <button class="click-button circle" id="click-button" disabled>
+          <span class="click-text">Click Me!</span>
+          <span class="click-counter" id="click-counter">0</span>
+        </button>
+      </div>
+
+      <!-- Controls -->
+      <div class="game-controls">
+        <button class="btn circle" id="start-btn">Start Game</button>
+      </div>
+    </div>
+
+    <!-- Results Modal -->
+    <div class="modal hidden" id="results-modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>🎉 Game Complete!</h2>
+        </div>
+        <div class="modal-body">
+          <div class="results-grid">
+            <div class="result-item">
+              <div class="result-label">Total Clicks</div>
+              <div class="result-value" id="final-score">0</div>
+            </div>
+            <div class="result-item">
+              <div class="result-label">Time Played</div>
+              <div class="result-value" id="final-time">30s</div>
+            </div>
+            <div class="result-item">
+              <div class="result-label">Average CPS</div>
+              <div class="result-value" id="final-cps">0.00</div>
+            </div>
+          </div>
+          <div class="performance-message" id="performance-message">
+            Great job! Keep practicing to improve your speed.
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn" id="play-again-btn">
+            Play Again
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
