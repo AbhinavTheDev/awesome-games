@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Soccer Slime</title>
+  </head>
+  <body>
+    <div class="game-container">
+      <!-- Main Menu -->
+      <div id="mainMenu" class="menu">
+        <h1>Soccer Slime</h1>
+        <!-- <p></p> -->
+        <div class="menu-buttons">
+          <button onclick="selectPlayerMode('single')">Single Player</button>
+          <button onclick="selectPlayerMode('multi')">Multiplayer</button>
+        </div>
+      </div>
+
+      <!-- Game Mode Selection -->
+      <div id="gameModeMenu" class="menu hidden">
+        <h2>Select Game Duration</h2>
+        <div class="team-display">
+          <span class="cyan-team">Cyan Team</span>
+          <span style="margin: 0 1rem">vs</span>
+          <span class="red-team">Red Team</span>
+        </div>
+        <div class="menu-buttons">
+          <button onclick="startGame('1min')">1 Minute</button>
+          <button onclick="startGame('2min')">2 Minutes</button>
+          <button onclick="startGame('4min')">4 Minutes</button>
+          <button onclick="startGame('8min')">8 Minutes</button>
+          <button onclick="startGame('worldcup')">World Cup</button>
+        </div>
+        <div class="instructions" id="instructions"></div>
+        <button class="small-button" onclick="backToMainMenu()">Back</button>
+      </div>
+
+      <!-- Game Screen -->
+      <div id="gameScreen" class="hidden">
+        <div class="score-board">
+          <span class="score">Cyan Team: <span id="leftScore">0</span></span>
+          <span class="timer" id="timer">00:00</span>
+          <span class="score"><span id="rightScore">0</span> : Red Team</span>
+        </div>
+        <canvas id="gameCanvas" width="800" height="400"></canvas>
+      </div>
+      <div id="winnerScreen" class="winner-screen hidden">
+        <div class="winner-screen-content">
+          <h2><span id="winnerText"></span>&#127881;</h2>
+          <button onclick="backToMainMenu()">Back to Menu</button>
+        </div>
+      </div>
+    </div>
+    <script src="./script.js"></script>
+  </body>
+</html>
