@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Game Hub by Abhinav</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <script
       defer
       data-domain="abhinavthedev.github.io"
@@ -13,119 +19,73 @@
   </head>
   <body>
     <div class="container">
-      <div class="bento-grid">
-        <!-- Ping Pong Game Box -->
-        <a href="./ping-pong/">
-          <div
-            class="grid-item game-item"
-            data-game="pingpong"
-            style="background-color: #ff8c42; color: #ffffff"
-          >
-            <div class="grid-content">
-              <div class="icon">&#127955;</div>
-              <h3>Ping Pong Game</h3>
-              <p>Classic arcade fun</p>
-            </div>
-          </div>
-        </a>
+      <header>
+        <!-- TODO: Replace this div with your actual logo (e.g., <img src="logo.svg" alt="Logo">) -->
+        <!-- <div>
+          <a href="#" class="logo-link">
+            <img
+              class="logo-placeholder"
+              src="https://images.unsplash.com/photo-1751795195789-8dab6693475d"
+              alt=""
+            />
+          </a>
+        </div> -->
+        <div class="heading">Game Hub</div>
+        <div class="nav-links">
+          <!-- <a href="./">Home</a> -->
+          <a target="_blank" href="https://github.com/abhinavthedev">Github</a>
+        </div>
+      </header>
 
-        <!-- Number Guessing Game Box -->
-        <a href="./guess-number/">
-          <div
-            class="grid-item game-item"
-            data-game="numberguess"
-            style="background-color: #9b59b6; color: #ffffff"
-          >
-            <div class="grid-content">
-              <div class="icon">&#127919;</div>
-              <h3>Number Guessing Game</h3>
-              <p>Test your intuition</p>
+      <main>
+        <h2>Games</h2>
+        <div class="grid-container" id="grid-container"></div>
+      </main>
+
+      <footer>
+        <div class="footer-content">
+          <div class="footer-left">
+            <!-- TODO: Replace this div with your actual logo -->
+            <!-- <a href="#" class="logo-link">
+              <img
+                class="logo-placeholder"
+                src="https://images.unsplash.com/photo-1751795195789-8dab6693475d"
+                alt=""
+              />
+            </a> -->
+            <div class="footer-info">
+              <p>Made by Abhinav</p>
+              <a
+                href="https://github.com/sponsors/AbhinavTheDev"
+                target="_blank"
+                class="buy-coffee-btn"
+                >Sponsor Me &#128522;</a
+              >
             </div>
           </div>
-        </a>
-        <!-- Mouse Clicker Game Box -->
-        <a href="./clicker/">
-          <div
-            class="grid-item game-item"
-            data-game="mouseclicker"
-            style="background-color: #f1c40f; color: #2d2d2d"
-          >
-            <div class="grid-content">
-              <div class="icon">&#128440;</div>
-              <h3>Mouse Clicker Game</h3>
-              <p>Click to win</p>
+          <div class="footer-right">
+            <!-- <div class="footer-links">
+              <a href="#">Website</a>
+              <a href="#">Tech Blog</a>
+              <a href="#">SVG Tutorial</a>
+            </div> -->
+            <div class="footer-links">
+              <a target="_blank" href="https://github.com/abhinavthedev"
+                >GitHub</a
+              >
+              <a
+                target="_blank"
+                href="https://linkedin.com/in/say-hi-to-abhinav"
+                >LinkedIn</a
+              >
+              <a target="_blank" href="https://www.youtube.com/@DevAbhinav"
+                >YouTube</a
+              >
             </div>
-          </div>
-        </a>
-        <a href="./slime-soccer/">
-          <div
-            class="grid-item game-item"
-            data-game="slime-soccer"
-            style="background-color: #0ff131; color: #2d2d2d"
-          >
-            <div class="grid-content">
-              <div class="icon">&#127936;</div>
-              <h3>Slime Soccer</h3>
-              <p>Shot the goals</p>
-            </div>
-          </div>
-        </a>
-        <a href="./toast-catcher/">
-          <div
-            class="grid-item game-item"
-            data-game="toast-catcher"
-            style="background-color: #08d6dd; color: #2d2d2d"
-          >
-            <div class="grid-content">
-              <div class="icon">&#127838;</div>
-              <h3>Toast Catcher</h3>
-              <p>Catch the Toast</p>
-            </div>
-          </div>
-        </a>
-        <!-- GitHub Box (spans 2 columns when space allows) -->
-        <div
-          class="grid-item github-box"
-          style="background-color: #2d2d2d; color: #ffffff"
-        >
-          <div class="grid-content">
-            <div class="icon">&#127775;</div>
-            <h2>Check out this project on GitHub!</h2>
-            <p>Give it a star if you like it!</p>
-            <a
-              href="http://github.com/abhinavthedev/awesome-games"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <button class="btn btn--primary github-btn">
-                &#127775; Star on GitHub
-              </button></a
-            >
           </div>
         </div>
-        <!-- Sponsor Box -->
-        <div
-          class="grid-item"
-          style="background-color: #ff6b9d; color: #ffffff"
-        >
-          <div class="grid-content">
-            <div class="icon">&#128150;</div>
-            <h3>Love the project?</h3>
-            <p>Help us by sponsoring!</p>
-            <a
-              href="https://github.com/sponsors/AbhinavTheDev"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <button class="btn btn--secondary sponsor-btn">
-                &#128150; Sponsor
-              </button>
-            </a>
-          </div>
-        </div>
-      </div>
+      </footer>
     </div>
-
-    <script src="script.js"></script>
+    <script type="module" src="./script.js"></script>
   </body>
 </html>
