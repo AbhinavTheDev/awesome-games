@@ -126,6 +126,7 @@ class Game {
       canvas.height / 2 - PADDLE_HEIGHT / 2
     );
     this.ball = new Ball(canvas.width / 2, canvas.height / 2);
+    this.isStarted = false;
     this.gameOver = false;
     this.winner = null;
 
@@ -148,6 +149,7 @@ class Game {
       if (this.rightPaddle) {
         this.rightPaddle.x = canvas.width - PADDLE_WIDTH - 10;
       }
+      if (!this.isStarted) this.drawStartMessage();
       if (this.gameOver) this.drawGameOver();
     }
   }
@@ -191,13 +193,17 @@ class Game {
     this.rightPaddle.draw();
     this.ball.draw();
 
+    if (!this.isStarted) {
+      this.drawStartMessage();
+    }
+
     if (this.gameOver) {
       this.drawGameOver();
     }
   }
 
   update() {
-    if (this.gameOver) return;
+    if (this.gameOver || !this.isStarted) return;
 
     this.leftPaddle.update();
 
@@ -224,24 +230,31 @@ class Game {
   }
 
   handleKeyDown(e) {
-    if (this.gameOver && e.key === "r") {
+    const key = e.key.toLowerCase();
+    if (!this.isStarted && key === "r") {
+      this.isStarted = true;
+      this.ball.reset();
+      return;
+    }
+
+    if (this.gameOver && key === "r") {
       this.resetGame();
       return;
     }
-    switch (e.key) {
-      case "ArrowUp":
+    switch (key) {
+      case "arrowup":
         this.leftPaddle.dy = -PADDLE_SPEED;
         break;
-      case "ArrowDown":
+      case "arrowdown":
         this.leftPaddle.dy = PADDLE_SPEED;
         break;
     }
   }
 
   handleKeyUp(e) {
-    switch (e.key) {
-      case "ArrowUp":
-      case "ArrowDown":
+    switch (e.key.toLowerCase()) {
+      case "arrowup":
+      case "arrowdown":
         this.leftPaddle.dy = 0;
         break;
     }
@@ -266,6 +279,19 @@ class Game {
     );
   }
 
+  drawStartMessage() {
+    ctx.fillStyle = "rgba(0, 0, 0, 0.7)";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = "#fff";
+    ctx.font = "16px 'Press Start 2P'";
+    ctx.textAlign = "center";
+    ctx.fillText(
+      "Press 'r' to Start",
+      canvas.width / 2,
+      canvas.height / 2
+    );
+  }
+
   resetGame() {
     this.leftPaddle.score = 0;
     this.rightPaddle.score = 0;
@@ -273,6 +299,7 @@ class Game {
     rightScoreElement.textContent = this.rightPaddle.score.toString();
     this.gameOver = false;
     this.winner = null;
+    this.isStarted = true; // Immediately start after reset
     this.leftPaddle.y = canvas.height / 2 - PADDLE_HEIGHT / 2;
     this.ball.reset();
   }
@@ -312,11 +339,18 @@ if (
   function startOrRestartGame() {
     if (!gameRunning) {
       game = new Game();
+      game.isStarted = true; // Start game via button on mobile
       gameRunning = true;
       game.loop();
     } else if (game && game.gameOver) {
       game.resetGame();
     }
+  }
+
+  // On large screens, don't start the game immediately, wait for 'r'
+  if (window.innerWidth > 620) {
+    game = new Game();
+    game.loop();
   }
 
   startButton.addEventListener("click", startOrRestartGame);

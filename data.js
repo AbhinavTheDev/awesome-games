@@ -7,14 +7,14 @@ const gameData = [
     imageLink: "./assets/ping-pong.png",
     tags: ["2D Game", "Vanilla JS"],
   },
-  {
-    id: 2,
-    name: "Clicker",
-    link: "./clicker/",
-    tagline: "test your mouse!",
-    imageLink: "./assets/clicker.png",
-    tags: ["Cursor"],
-  },
+  // {
+  //   id: 2,
+  //   name: "Clicker",
+  //   link: "./clicker/",
+  //   tagline: "test your mouse!",
+  //   imageLink: "./assets/clicker.png",
+  //   tags: ["Cursor"],
+  // },
   {
     id: 3,
     name: "Guess Number",
