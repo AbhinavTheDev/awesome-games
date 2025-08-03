@@ -194,7 +194,6 @@ body {
     padding: 30px 0; /* Space between screen and buttons */
   }
   .navigation-buttons {
-    flex-direction: row; /* Horizontal buttons */
     gap: 30px;
     justify-content: center;
   }
