@@ -125,7 +125,9 @@ modalOverlay.addEventListener("click", closeGame);
 
 fullscreenBtn.addEventListener("click", () => {
   if (!document.fullscreenElement) {
-    gameIframe.requestFullscreen().catch(() => {});
+    gameIframe.requestFullscreen().catch((err) => {
+      console.warn("Fullscreen request failed:", err.message);
+    });
   } else {
     document.exitFullscreen();
   }
