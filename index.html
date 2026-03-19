@@ -3,13 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" href="./public/favicon.ico" type="image/x-icon">
-    <title>Awesome Games by Abhinav</title>
+    <link rel="shortcut icon" href="./public/favicon.ico" type="image/x-icon" />
+    <title>Awesome Games</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
     <script
@@ -19,57 +19,179 @@
     ></script>
   </head>
   <body>
-    <div class="container">
-      <header>
-        <!-- TODO: Replace this div with your actual logo (e.g., <img src="logo.svg" alt="Logo">) -->
-        <!-- <div>
-          <a href="#" class="logo-link">
-            <img
-              class="logo-placeholder"
-              src="https://images.unsplash.com/photo-1751795195789-8dab6693475d"
-              alt=""
-            />
-          </a>
-        </div> -->
-        <div class="heading">Awesome Games</div>
-        <div class="nav-links">
-          <!-- <a href="./">Home</a> -->
-          <a target="_blank" href="https://github.com/abhinavthedev">Github</a>
+    <!-- Header -->
+    <header class="site-header">
+      <div class="header-inner">
+        <div class="header-left">
+          <div class="logo">
+            <span class="logo-icon">🎮</span>
+            <span class="logo-text"
+              >Awesome<span class="logo-accent">Games</span></span
+            >
+          </div>
         </div>
-      </header>
+        <div class="header-center">
+          <div class="search-bar">
+            <svg
+              class="search-icon"
+              viewBox="0 0 20 20"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <circle cx="8.5" cy="8.5" r="5.5" />
+              <path d="M15 15l-3-3" stroke-linecap="round" />
+            </svg>
+            <input
+              type="text"
+              id="search-input"
+              placeholder="Search games…"
+              autocomplete="off"
+            />
+          </div>
+        </div>
+        <div class="header-right">
+          <a
+            target="_blank"
+            href="https://github.com/abhinavthedev"
+            class="gh-btn"
+          >
+            <svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor">
+              <path
+                d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38
+                0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13
+                -.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66
+                .07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15
+                -.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0
+                1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82
+                1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01
+                1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"
+              />
+            </svg>
+            <span>GitHub</span>
+          </a>
+        </div>
+      </div>
+    </header>
 
-      <main>
-        <h2>Games</h2>
-        <div class="grid-container" id="grid-container"></div>
-      </main>
+    <!-- Category Filters -->
+    <div class="filters-bar">
+      <div class="filters-inner">
+        <button class="filter-btn active" data-filter="all">
+          🕹️ All Games
+        </button>
+        <button class="filter-btn" data-filter="action">⚡ Action</button>
+        <button class="filter-btn" data-filter="sports">🏆 Sports</button>
+        <button class="filter-btn" data-filter="puzzle">🧩 Puzzle</button>
+        <button class="filter-btn" data-filter="casual">🎯 Casual</button>
+      </div>
+    </div>
 
-      <footer>
+    <!-- Main -->
+    <main class="main-content">
+      <div class="container">
+        <!-- Featured Game -->
+        <section class="featured-section" id="featured-section">
+          <h2 class="section-title">⭐ Featured Game</h2>
+          <div class="featured-card" id="featured-card"></div>
+        </section>
+
+        <!-- Games Grid -->
+        <section class="games-section">
+          <h2 class="section-title" id="games-section-title">All Games</h2>
+          <div class="games-grid" id="grid-container"></div>
+          <div class="no-results" id="no-results" style="display: none">
+            <span class="no-results-icon">🔍</span>
+            <p>No games found. Try a different search!</p>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- Game Modal -->
+    <div class="game-modal" id="game-modal" role="dialog" aria-modal="true">
+      <div class="modal-overlay" id="modal-overlay"></div>
+      <div class="modal-container">
+        <div class="modal-header">
+          <span class="modal-game-title" id="modal-title"></span>
+          <div class="modal-actions">
+            <button
+              class="modal-btn fullscreen-btn"
+              id="fullscreen-btn"
+              title="Fullscreen"
+              aria-label="Toggle fullscreen"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                width="16"
+                height="16"
+              >
+                <path
+                  d="M8 3H5a2 2 0 00-2 2v3M21 8V5a2 2 0 00-2-2h-3M16 21h3a2 2 0 002-2v-3M3 16v3a2 2 0 002 2h3"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+            <button
+              class="modal-btn close-btn"
+              id="close-modal"
+              title="Close"
+              aria-label="Close game"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                width="16"
+                height="16"
+              >
+                <path
+                  d="M18 6L6 18M6 6l12 12"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div class="modal-body">
+          <iframe
+            id="game-iframe"
+            src=""
+            title="Game"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="container">
         <div class="footer-content">
           <div class="footer-left">
-            <!-- TODO: Replace this div with your actual logo -->
-            <!-- <a href="#" class="logo-link">
-              <img
-                class="logo-placeholder"
-                src="https://images.unsplash.com/photo-1751795195789-8dab6693475d"
-                alt=""
-              />
-            </a> -->
+            <div class="logo">
+              <span class="logo-icon">🎮</span>
+              <span class="logo-text"
+                >Awesome<span class="logo-accent">Games</span></span
+              >
+            </div>
             <div class="footer-info">
-              <p>Made by Abhinav</p>
+              <p>Made with ❤️ by Abhinav</p>
               <a
                 href="https://github.com/sponsors/AbhinavTheDev"
                 target="_blank"
-                class="buy-coffee-btn"
-                >Sponsor Me &#128522;</a
+                class="sponsor-btn"
+                >Sponsor Me 😊</a
               >
             </div>
           </div>
           <div class="footer-right">
-            <!-- <div class="footer-links">
-              <a href="#">Website</a>
-              <a href="#">Tech Blog</a>
-              <a href="#">SVG Tutorial</a>
-            </div> -->
             <div class="footer-links">
               <a target="_blank" href="https://github.com/abhinavthedev"
                 >GitHub</a
@@ -85,8 +207,9 @@
             </div>
           </div>
         </div>
-      </footer>
-    </div>
+      </div>
+    </footer>
+
     <script type="module" src="./script.js"></script>
   </body>
 </html>
